@@ -78,6 +78,7 @@ where
         let proxy = build_proxy_connector(tls_settings.into(), proxy_config)?;
         let client = client_builder.build(proxy);
 
+
         let version = crate::get_version();
         let user_agent = HeaderValue::from_str(&format!("Vector/{}", version))
             .expect("Invalid header value for version!");
