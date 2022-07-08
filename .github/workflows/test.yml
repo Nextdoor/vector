@@ -82,7 +82,7 @@ jobs:
   # Then, modify the `cross-linux` job to run `test` instead of `build`.
   test-linux:
     name: Unit - x86_64-unknown-linux-gnu
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     env:
       CARGO_INCREMENTAL: 0
@@ -113,7 +113,7 @@ jobs:
 
   test-cli:
     name: CLI - Linux
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     env:
       CARGO_INCREMENTAL: 0
@@ -141,7 +141,7 @@ jobs:
 
   test-misc:
     name: Miscellaneous - Linux
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     env:
       CARGO_INCREMENTAL: 0
@@ -168,7 +168,7 @@ jobs:
 
   cross-linux:
     name: Cross - ${{ matrix.target }}
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     env:
       CARGO_INCREMENTAL: 0
@@ -262,7 +262,7 @@ jobs:
   test-vrl:
     name: VRL - Linux
     continue-on-error: true
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     if: ${{ needs.changes.outputs.source == 'true' || needs.changes.outputs.cue == 'true' }}
     steps:
@@ -273,7 +273,7 @@ jobs:
 
   check-component-features:
     name: Component Features - Linux
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     if: ${{ needs.changes.outputs.source == 'true' }}
     steps:
@@ -285,7 +285,7 @@ jobs:
 
   check-msrv:
     name: Check minimum supported Rust version
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     if: ${{ needs.changes.outputs.source == 'true' }}
     steps:
@@ -296,7 +296,7 @@ jobs:
 
   checks:
     name: Checks
-    runs-on: [linux, test-runner]
+    runs-on: ubuntu-20.04
     needs: changes
     env:
       CARGO_INCREMENTAL: 0
