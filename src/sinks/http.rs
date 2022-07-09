@@ -145,11 +145,11 @@ impl GenerateConfig for HttpSinkConfig {
 impl HttpSinkConfig {
     fn build_http_client(&self, cx: &SinkContext) -> crate::Result<HttpClient> {
         let tls = TlsSettings::from_options(&self.tls)?;
-        let mut cb = Client::builder().http2_only(true);
         Ok(HttpClient::new_with_custom_client(
             tls,
             cx.proxy(),
-            &mut cb)?)
+            Client::builder().http2_only(true),
+        )?)
     }
 }
 
