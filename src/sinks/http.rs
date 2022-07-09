@@ -14,7 +14,7 @@ use http::{
 };
 use hyper::Body;
 
-use hyper::{client, client::Client};
+use hyper::client::Client;
 
 use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
