@@ -145,7 +145,7 @@ impl HttpSinkConfig {
         Ok(HttpClient::new_with_custom_client(
             tls,
             cx.proxy(),
-            Client::builder().http2_only(true),
+            &mut Client::builder().http2_only(true),
         )?)
     }
 }
