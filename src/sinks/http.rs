@@ -13,6 +13,7 @@ use http::{
     Method, Request, StatusCode, Uri,
 };
 use hyper::Body;
+
 use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use snafu::{ResultExt, Snafu};
